@@ -1,0 +1,21 @@
+const mongoose = require('mongoose');
+//const aws = require('aws-sdk');
+// todo: mongo config file
+const connectionString = "mongodb://localhost:27017/songify";
+let connected = false;
+
+class MongoController {
+    static connect() {
+        if(!connected) {
+            connected = true;
+            mongoose.connect(connectionString, { useNewUrlParser: true, useCreateIndex:true, useFindAndModify:false})
+                .then(() => {
+                    console.log('Connected to the database!');
+                }).catch(reason => {
+                console.log(reason);
+            });
+        }
+    }
+}
+
+module.exports = MongoController;

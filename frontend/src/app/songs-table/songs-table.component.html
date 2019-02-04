@@ -1,0 +1,33 @@
+<form  #songForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label for="name">Artist</label>
+    <input type="text" class="form-control" id="artist" required [(ngModel)]="model.artist" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label for="name">Genre</label>
+    <input type="text" class="form-control" id="genre" required [(ngModel)]="model.genre" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label for="name">Length</label>
+    <input type="text" class="form-control" id="length" required [(ngModel)]="model.time" [ngModelOptions]="{standalone: true}">
+  </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+
+</form>
+
+<button type="button" class="btn btn-danger" (click)="deleteSelectedRows()"><span class="oi oi-trash"></span></button>
+<ag-grid-angular #agGrid
+                 class="ag-theme-balham grid"
+                 [gridOptions]="gridOptions"
+                 [columnDefs]="columnDefs"
+                 [rowData]="rowData"
+                 [enableSorting]="true"
+                 [enableColResize]="true"
+                 [pagination]="true"
+                 [paginationAutoPageSize]="true"
+                 rowSelection="multiple">
+</ag-grid-angular>
