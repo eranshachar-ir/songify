@@ -25,7 +25,9 @@ var defineRoutes = router =>{
     });
 
     router.put('/song',async  function(req,res) {
-        // TODO!
+        let song =await SongController.updateSong(req.body);
+
+        res.status(song?200:400).send(song);
 
     });
     return router;

@@ -48,6 +48,18 @@ class SongController {
         return result;
     };
 
+    static async updateSong(body) {
+        console.log(body);
+        let result ={msg:"Done"};
+        await Song.findByIdAndUpdate(body._id, body, {new: true}, (err, song) => {
+                // Handle any possible database errors
+                if (err) result=err;
+            });
+        return result;
+
+
+    }
+
 
 }
 

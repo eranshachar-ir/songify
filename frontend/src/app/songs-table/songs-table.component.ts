@@ -34,9 +34,9 @@ export class SongsTableComponent implements OnInit {
     this.columnDefs = [
       {headerName: '', field: 'bulk-action', width: 55, editable: false, checkboxSelection: true},
       {headerName: 'Song Name', field: 'name'},
-      {headerName: 'id', field: '_id', editable: false},
-      {headerName: 'Artist', field: 'artist'},
-      {headerName: 'Genre', field: 'genre'},
+      {headerName: 'id', field: '_id', editable: false, hide: true},
+      {headerName: 'Artist', field: 'artist', filter: 'agTextColumnFilter', filterParams: {filterOptions: ['contains', 'notContains', 'startsWith','endsWith','equals']}},
+      {headerName: 'Genre', field: 'genre',  filter: 'agTextColumnFilter', filterParams: {filterOptions: ['contains', 'notContains', 'startsWith','endsWith','equals']}},
       {headerName: 'length', field: 'time'}
     ];
   }
